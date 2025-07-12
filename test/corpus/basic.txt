@@ -1,0 +1,121 @@
+================================================================================
+Schema header
+================================================================================
+
+schema_header::{
+  imports: [
+    { id: "isl/ion.isl", type: ion }
+  ]
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (schema_header
+    (struct
+      (field
+        (symbol)
+        (list
+          (struct
+            (field (symbol) (string))
+            (field (symbol) (symbol))))))))
+
+================================================================================
+Import statement
+================================================================================
+
+import::{
+  id: "isl/ion.isl",
+  type: ion
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (import_statement
+    (struct
+      (field (symbol) (string))
+      (field (symbol) (symbol)))))
+
+================================================================================
+Type definition
+================================================================================
+
+type::{
+  name: person,
+  type: struct,
+  fields: {
+    name: string,
+    age: { type: int, valid_values: range::[0, 150] }
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (type_definition
+    (struct
+      (field (symbol) (symbol))
+      (field (symbol) (symbol))
+      (field
+        (symbol)
+        (struct
+          (field (symbol) (symbol))
+          (field
+            (symbol)
+            (struct
+              (field (symbol) (symbol))
+              (field
+                (symbol)
+                (annotated_value
+                  (annotation (symbol))
+                  (list (int) (int)))))))))))
+
+================================================================================
+Multiple definitions
+================================================================================
+
+schema_header::{
+  imports: [{ id: "isl/ion.isl", type: ion }]
+}
+
+type::{
+  name: email,
+  type: string,
+  regex: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+}
+
+type::{
+  name: user,
+  type: struct,
+  fields: {
+    email: email,
+    active: true
+  }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (schema_header
+    (struct
+      (field
+        (symbol)
+        (list
+          (struct
+            (field (symbol) (string))
+            (field (symbol) (symbol)))))))
+  (type_definition
+    (struct
+      (field (symbol) (symbol))
+      (field (symbol) (symbol))
+      (field (symbol) (string))))
+  (type_definition
+    (struct
+      (field (symbol) (symbol))
+      (field (symbol) (symbol))
+      (field
+        (symbol)
+        (struct
+          (field (symbol) (symbol))
+          (field (symbol) (bool)))))))

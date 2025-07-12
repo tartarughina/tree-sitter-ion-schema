@@ -1,0 +1,54 @@
+{
+  "name": "tree-sitter-ion-schema",
+  "version": "1.0.0",
+  "description": "Tree-sitter grammar for Ion Schema Language",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "scripts": {
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip",
+    "build": "tree-sitter generate --no-bindings",
+    "test": "tree-sitter test"
+  },
+  "keywords": [
+    "parsing",
+    "incremental",
+    "tree-sitter",
+    "ion-schema",
+    "amazon-ion"
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "author": "tartarughina",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.2",
+    "prebuildify": "^6.0.0"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.isl",
+      "file-types": [
+        "isl"
+      ]
+    }
+  ]
+}
