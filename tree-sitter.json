@@ -1,0 +1,12 @@
+{
+  "grammars": [
+    {
+      "name": "ion_schema",
+      "path": ".",
+      "scope": "source.isl"
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0"
+  }
+}
