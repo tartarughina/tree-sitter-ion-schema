@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build files
+*.wasm
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+
+# Cache and logs
+.cache
+.npm
+logs
+*.log
+tmp/
+coverage/
+
+# Editor directories and files
+.idea/
+.vscode/
+.zed
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Misc
+.env
+.env.*
+.eslintcache
